@@ -1,6 +1,6 @@
 import scipy
-
-from tensorflow.keras.models import load_model
+import keras
+from keras.models import load_model
 from PIL import Image
 from mtcnn.mtcnn import MTCNN
 import os
@@ -18,8 +18,9 @@ from random import choice
 # print(tensorflow.__version__)
 # print(keras.__version__)
 
-
-model = load_model("../Final Code/models/facenet_keras.h5")
+from Facenet_keras import InceptionResNetV1
+model = InceptionResNetV1(weights_path="models/facenet_keras.h5")
+# model = load_model("models/facenet_keras.h5")
 
 # summarize input and output shape
 print(model.inputs)
@@ -67,12 +68,12 @@ def get_embedding(model, face_pixels):
 
 
 # Place image path at t=0
-face_array = extract_face("../input/multifaces/63063.jpg")
+face_array = extract_face("../63063.jpg")
 embedding = get_embedding(model, face_array)
 print(embedding.shape)
 
 face_array2 = extract_face(
-	"../input/datasets-for-face-recog-task/Dataset_GOI-20210429T174054Z-001/Dataset_GOI/train/Arya/02.jpg")
+	"../clooney1.jpg")
 embedding2 = get_embedding(model, face_array2)
 print(embedding2.shape)
 
