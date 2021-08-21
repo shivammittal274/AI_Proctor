@@ -21,3 +21,13 @@ Sample of Features present
 2. Phone/Book detection
 
 3. Lip Movement
+![plot](./Output/Mouth_Not_open.png)
+![plot](./Output/Mouth_open.png)
+
+4. Head pose
+
+5. Eye gaze
+
+6. Face spoof
+
+7. Audio detection
